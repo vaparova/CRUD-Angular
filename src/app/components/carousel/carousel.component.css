@@ -1,0 +1,10 @@
+.subtitle{
+  color: black !important;
+  font-size: 32px !important;
+}
+
+.details{
+  color: gray !important;
+  background-color: white !important ;
+  font-style: oblique !important;
+}

@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { CarritoComponent } from "./carrito/carrito.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { CarouselComponent } from "./carousel/carousel.component";
+import { ProductosComponent } from './productos/productos.component';
 
 
 @NgModule({
@@ -12,12 +13,14 @@ import { CarouselComponent } from "./carousel/carousel.component";
   declarations: [
     CarritoComponent,
     NavbarComponent,
-    CarouselComponent
+    CarouselComponent,
+    ProductosComponent
   ],
   exports: [
     CarritoComponent,
     NavbarComponent,
-    CarouselComponent
+    CarouselComponent,
+    ProductosComponent
   ]
 })
 export class ComponentModule{}
