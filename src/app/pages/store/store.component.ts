@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Producto } from 'src/app/models/producto';
 import { ProductosService } from 'src/app/services/ProductosService';
 
 @Component({
@@ -8,11 +9,11 @@ import { ProductosService } from 'src/app/services/ProductosService';
 })
 export class StoreComponent {
   categorias = ['Skincare', 'Maquillaje', 'Fragancias'];
+  productos: Producto[] = []
 
   constructor( private productosServ: ProductosService){
-    this.productosServ.getProductos().then( ()=>{
-      this.productosServ.setProductos();
-      this.productosServ.setBd();
+    this.productosServ.getProductosBD().then( ()=>{
+     this.productos = this.productosServ.getProductosArr();
     });
   }
 

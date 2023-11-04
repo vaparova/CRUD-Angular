@@ -11,13 +11,13 @@ import { Producto } from '../models/producto';
 })
 export class ProductosService {
 
-  prodto = new Array();
+  prodto: Producto[] = [];
 
 
   constructor(private afs: AngularFireDatabase) {
   }
 
-  getProductos() {
+  getProductosBD() {
     return new Promise((resolve, reject)=>{
       const conexion = this.afs.object('productos/').snapshotChanges();
         conexion.pipe(
@@ -48,6 +48,10 @@ export class ProductosService {
       a.push(skin);
     });
     this.prodto = a;
+    return this.prodto;
+  }
+
+  getProductosArr(){
     return this.prodto;
   }
 }
