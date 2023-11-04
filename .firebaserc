@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "vprv-crudangular": {
+      "hosting": {
+        "crudAngular": [
+          "vprv-crudangular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "vprv-crudangular"
+  }
+}
