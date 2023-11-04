@@ -11,6 +11,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import { ComponentModule } from './components/component.module';
 import { environment } from 'src/environments/environment.development';
+import { ProductosService } from './services/ProductosService';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { environment } from 'src/environments/environment.development';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
-  providers: [],
+  providers: [
+    ProductosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

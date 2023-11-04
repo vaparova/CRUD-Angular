@@ -12,14 +12,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'crudAngular';
-  productos: any;
 
 
-  constructor(private afs: AngularFireDatabase){
-    this.afs.object('productos/').snapshotChanges().subscribe( resp =>{
-      this.productos = resp.payload.val();
-      console.log(this.productos);
-    });
+
 
   }
-}
