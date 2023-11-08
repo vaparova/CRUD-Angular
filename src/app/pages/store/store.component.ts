@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { catchError, of, throwError } from 'rxjs';
 import { Producto } from 'src/app/models/producto';
 import { ProductosService } from 'src/app/services/ProductosService';
 
@@ -9,12 +10,14 @@ import { ProductosService } from 'src/app/services/ProductosService';
 })
 export class StoreComponent {
   categorias = ['Skincare', 'Maquillaje', 'Fragancias'];
-  productos: Producto[] = []
+  productos: Producto[] = [];
 
   constructor( private productosServ: ProductosService){
-    this.productosServ.getProductosBD().then( ()=>{
-     this.productos = this.productosServ.getProductosArr();
-    });
+    this.productosServ.getProductosArr(2).pipe(
+      catchError(err => throwError(()=> new Error('Error en BD')))
+    ).subscribe(productos => {
+      this.productos = productos
+    })
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Categorias } from 'src/app/models/categorias';
 import { Producto } from 'src/app/models/producto';
 
 @Component({
@@ -9,5 +10,11 @@ import { Producto } from 'src/app/models/producto';
 export class ProductosComponent {
 
   @Input() productos: Producto[] | undefined;
+
+
+  constructor(){
+
+  }
+
 
 }

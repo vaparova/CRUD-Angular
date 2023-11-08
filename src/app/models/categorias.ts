@@ -1,8 +1,8 @@
 export class Categorias{
   categorias = [
-    'Skincare',
-    'Maquillaje',
-    'Fragancias'
+    'skincare',
+    'maquillaje',
+    'fragancias'
   ];
 
   getCategoria(categoria: number){
