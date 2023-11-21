@@ -1,5 +1,6 @@
 export class Categorias{
   categorias = [
+    '',
     'skincare',
     'maquillaje',
     'fragancias'

@@ -3,6 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 import { Producto } from '../models/producto';
 import { Categorias } from '../models/categorias';
+import { Observable, catchError, map } from 'rxjs';
 
 
 
@@ -20,7 +21,12 @@ export class ProductosService {
   }
 
   getProductosArr(cat:number){
-  return this.getProductosBD(cat);
+    return this.getProductosBD(cat).pipe(
+      map(productos =>  productos),
+      catchError(err =>{
+        throw new Error('Error en BD' + err)
+      })
+    );
   }
 
 
@@ -32,7 +38,7 @@ export class ProductosService {
 
   // M E T O D O S   F I R E B A S E
 
-  private getProductosBD(cat: number) {
+  private getProductosBD(cat: number): Observable<Producto[]>{
     return this.afs.list<Producto>(this.setCategoriaBD(cat)).valueChanges();
   }
 

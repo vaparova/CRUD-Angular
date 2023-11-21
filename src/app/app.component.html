@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
-<app-carousel></app-carousel>
-<app-store></app-store>
+<app-carousel (categoria)="recibeCat($event)"></app-carousel>
+<app-store [catStore]="categApp"></app-store>
+
 

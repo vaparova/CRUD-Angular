@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent {
+
+  indexCat = 1;
+  @Output() categoria = new EventEmitter<number>();
+
+  sendCategory(idx: number){
+    this.categoria.emit(idx);
+  }
 
 }

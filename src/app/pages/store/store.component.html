@@ -1,7 +1,13 @@
 <div class="m-3">
-  <h3>Productos {{categorias[0]}}</h3>
-  <div *ngIf="productos.length > 0">
+  <div *ngIf="catStore">
+    <h3>Productos {{categorias[catStore]}} </h3>
+  </div>
+  <div *ngIf="productos.length > 0" class="mt-5">
     <app-productos [productos]="productos" ></app-productos>
+  </div>
+
+  <div *ngIf="e" class="alert alert-danger" role="alert">
+   No se obtuvo respuesta desde BD
   </div>
 </div>
 

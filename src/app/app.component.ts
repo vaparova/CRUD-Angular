@@ -13,6 +13,12 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'crudAngular';
 
+  categApp = 1;
+
+  recibeCat($event: number){
+    this.categApp = $event;
+    console.log(this.categApp);
+  }
 
 
 
