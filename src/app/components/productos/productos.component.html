@@ -5,7 +5,10 @@
         <div class="card-body">
           <h5 class="card-title">{{producto.nombre}}</h5>
           <p class="card-text">{{producto.descripcion}}</p>
-          <a href="#" class="btn btn-primary">Añadir</a>
+          <p class="text-center fw-bolder">{{producto.precio | currency: 'USD'}}</p>
+          <div class="d-grid gap-2">
+            <a href="#" class="btn btn btn-outline-primary btn-sm">Agregar</a>
+          </div>
         </div>
       </div>
     </div>

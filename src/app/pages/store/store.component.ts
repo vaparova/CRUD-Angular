@@ -12,6 +12,7 @@ export class StoreComponent {
   categorias = ['','Skincare', 'Maquillaje', 'Fragancias'];
   productos: Producto[] = [];
   e: Error | undefined;
+  delay = false;
   @Input() catStore: number | undefined;
 
 
@@ -28,15 +29,20 @@ export class StoreComponent {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
     console.log(changes);
-    if(this.catStore){
-      this.productosServ.getProductosArr(this.catStore).subscribe( {
-        next: prod => this.setProductos(prod),
-        error: err => this.e = err
-      });
-    }
+    this.delay = true;
+    this.productos = [];
+
+    setTimeout( ()=>{
+      if(this.catStore){
+        this.productosServ.getProductosArr(this.catStore).subscribe( {
+          next: prod => this.setProductos(prod),
+          error: err => this.e = err
+        });
+      }
+      this.delay = false;
+    },500);
+
   }
 
   setProductos(prod: Producto[]){

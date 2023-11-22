@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  @Output() categoria = new EventEmitter<number>();
+
+  sendCategory(idx: number){
+    this.categoria.emit(idx);
+  }
 }

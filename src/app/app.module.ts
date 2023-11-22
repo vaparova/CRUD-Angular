@@ -23,7 +23,7 @@ import { ProductosService } from './services/ProductosService';
     AppRoutingModule,
     ComponentModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [
     ProductosService
