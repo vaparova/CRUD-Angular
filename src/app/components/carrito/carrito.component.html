@@ -7,7 +7,57 @@
     </div>
   </div>
 
-  <div id="cardPaymentBrick_container"></div>
+  <!-- <form class="top-bottom">
+    <label class="control">
+      <span>Button color</span>
+      <select name="button-color" *ngModel="buttonColor">
+        <option value="default">default</option>
+        <option value="black">black</option>
+        <option value="white">white</option>
+      </select>
+    </label>
+    <label class="control">
+      <span>Button type</span>
+      <select name="button-type" *ngModel="buttonType">
+        <option value="buy">buy</option>
+        <option value="plain">plain</option>
+        <option value="donate">donate</option>
+      </select>
+    </label>
+    <label>
+      <input name="button-custom" type="checkbox" *ngModel="isCustomSize" />
+      <span>Custom button size</span>
+    </label>
+    <label class="control">
+      <span>Button width <span class="value">({{buttonWidth}}px)</span></span>
+      <input
+        name="button-width"
+        type="range"
+        min="160"
+        max="800"
+        *ngModel="buttonWidth"
+        [disabled]="!isCustomSize"
+      />
+    </label>
+    <label class="control">
+      <span>Button height <span class="value">({{buttonHeight}}px)</span></span>
+      <input
+        name="button-height"
+        type="range"
+        min="40"
+        max="100"
+        *ngModel="buttonHeight"
+        [disabled]="!isCustomSize"
+      />
+    </label>
+  </form> -->
+  <p *ngIf="!showButtonPay">Compra Finalizada!, Gracias! :D</p>
+
+  <div class="demo" *ngIf="showButtonPay">
+    <google-pay-button environment="TEST" buttonColor="black" buttonType="buy"
+      [buttonSizeMode]="isCustomSize ? 'fill' : 'static'" [paymentRequest]="paymentRequest" [style.width.px]="buttonWidth"
+      [style.height.px]="buttonHeight" (loadpaymentdata)="onLoadPaymentData($event)"></google-pay-button>
+  </div>
 
 </div>
 

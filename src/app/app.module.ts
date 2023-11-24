@@ -12,17 +12,22 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { ComponentModule } from './components/component.module';
 import { environment } from 'src/environments/environment.development';
 import { ProductosService } from './services/ProductosService';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StoreComponent
+    StoreComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentModule,
+    FormsModule,
     AngularFireDatabaseModule,
+    GooglePayButtonModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [
